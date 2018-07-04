@@ -65,7 +65,7 @@ for (let i = 1; i <= maxPixels; ++i) {
   spacingSizes.push([`n${i}p`, pxs(-i)]);
 }
 
-const maxUnits = 30;
+const maxUnits = 40;
 for (let i = 1; i <= maxUnits; ++i) {
   spacingSizes.push([`${i}`, units(i)]);
   spacingSizes.push([`n${i}`, units(-i)]);

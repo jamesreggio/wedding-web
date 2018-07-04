@@ -21,11 +21,10 @@ export const neg = rems => `-${rems}`;
  * Breakpoints.
  */
 
-//XXX
 export const breakpoints = {
-  m: 576,
-  l: 928,
-  xl: 1252,
+  m: 820,
+  l: 1040,
+  xl: 1320,
 }; // px
 
 export const mediaQuery = breakpoint => {
@@ -48,24 +47,21 @@ export const layout = {
 
 // prettier-ignore
 const sharedColors = {
-  accent:    '#1f90c5', //XXX
+  null:     'transparent',
+  white:    '#ffffff',
+  accent:   '#5e0817',
+  black:    '#1e2e3d',
 };
 
 // prettier-ignore
 export const colors = {
   fg: {
     ...sharedColors,
-    null:     'transparent',
-    white:    '#ffffff',
-    dark:     '#787878',
-    black:    '#373c3f',
   },
 
   bg: {
     ...sharedColors,
-    null:    'transparent',
-    white:   '#ffffff',
-    light:   '#fafafa',
+    light:   '#fbfbfb',
   },
 };
 
@@ -73,9 +69,14 @@ export const colors = {
  * Font constants.
  */
 
-//XXX
 // prettier-ignore
 export const fonts = {
-  normal: '-apple-system, BlinkMacSystemFont, Helvetica, sans-serif',
-  accent: '-apple-system, BlinkMacSystemFont, Helvetica, sans-serif',
+  normal: 'Plantin Std, -apple-system, BlinkMacSystemFont, Helvetica, sans-serif',
+  accent: 'Concourse C3, -apple-system, BlinkMacSystemFont, Helvetica, sans-serif',
 };
+
+/**
+ * Text constants.
+ */
+
+export const nbsp = '\u00a0';

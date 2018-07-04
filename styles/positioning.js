@@ -61,7 +61,7 @@ for (let i = 1; i <= maxPixels; ++i) {
   absoluteSizes.push([`n${i}p`, pxs(-i)]);
 }
 
-const maxUnits = 20;
+const maxUnits = 40;
 for (let i = 1; i <= maxUnits; ++i) {
   absoluteSizes.push([`${i}`, units(i)]);
   absoluteSizes.push([`n${i}`, units(-i)]);

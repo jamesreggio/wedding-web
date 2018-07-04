@@ -30,6 +30,8 @@ const buildSizing = (axisName, axis, sizeName, size) => {
 const sizingAxes = [
   ['w', 'width'],
   ['h', 'height'],
+  ['mw', 'minWidth'],
+  ['mh', 'minHeight'],
 ];
 
 // prettier-ignore

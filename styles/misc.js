@@ -76,9 +76,12 @@ export default {
     plain: `
       color: inherit;
       text-decoration: none;
+      padding-bottom: 1px;
 
+      &:focus,
       &:hover {
-        opacity: 0.75;
+        outline: 0;
+        border-bottom: 2px solid ${colors.fg.accent};
       }
     `,
 

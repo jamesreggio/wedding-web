@@ -17,13 +17,13 @@ injectGlobal`
   }
 
   html {
-    font-size: ${base}px;
+    font-size: ${base - 2}px;
     font-family: ${fonts.normal};
     -webkit-font-smoothing: antialiased;
     background-color: ${_colors.bg.light};
 
-    ${mediaQuery('m')} {
-      font-size: ${base + 2}px;
+    ${mediaQuery('l')} {
+      font-size: ${base}px;
     }
   }
 `;

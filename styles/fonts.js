@@ -1,26 +1,46 @@
-// import {injectGlobal} from 'emotion';
+import {injectGlobal} from 'emotion';
 
-//XXX
 // eslint-disable-next-line no-unused-expressions
-//injectGlobal`
-//  @font-face {
-//    font-family: 'Benton Sans';
-//    src: url(${require('banter/static/fonts/BentonSansRegular.otf')}) format('opentype');
-//    font-weight: 400;
-//    font-style: normal;
-//  }
-//
-//  @font-face {
-//    font-family: 'Benton Sans';
-//    src: url(${require('banter/static/fonts/BentonSansMedium.otf')}) format('opentype');
-//    font-weight: 500;
-//    font-style: normal;
-//  }
-//
-//  @font-face {
-//    font-family: 'Banter';
-//    src: url(${require('banter/static/fonts/Banter.ttf')}) format('truetype');
-//    font-weight: normal;
-//    font-style: normal;
-//  }
-//`;
+injectGlobal`
+  @font-face {
+    font-family: 'Concourse C3';
+    src: url(${require('wedding/static/fonts/ConcourseC3.otf')}) format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Concourse C3';
+    src: url(${require('wedding/static/fonts/ConcourseC3-Bold.otf')}) format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Plantin Std';
+    src: url(${require('wedding/static/fonts/PlantinStd.otf')}) format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Plantin Std';
+    src: url(${require('wedding/static/fonts/PlantinStd-Italic.otf')}) format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'Plantin Std';
+    src: url(${require('wedding/static/fonts/PlantinStd-Semibold.otf')}) format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Plantin Std';
+    src: url(${require('wedding/static/fonts/PlantinStd-SemiboldItalic.ttf')}) format('truetype');
+    font-weight: 500;
+    font-style: italic;
+  }
+`;

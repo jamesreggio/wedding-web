@@ -1,9 +1,33 @@
+import {pxs, fonts} from './consts';
+
 /**
  * Typographical styles.
  */
 
 const text = {
-  //XXX
+  h1: {
+    fontSize: pxs(24),
+    fontWeight: 700,
+    lineHeight: 1.35,
+    fontFamily: fonts.accent,
+    letterSpacing: 1.3,
+    textTransform: 'uppercase',
+  },
+
+  h2: {
+    fontSize: pxs(18),
+    fontWeight: 700,
+    lineHeight: 1.35,
+    fontFamily: fonts.accent,
+    letterSpacing: 1.3,
+    textTransform: 'uppercase',
+  },
+
+  sh1: {
+    fontSize: pxs(18),
+    fontStyle: 'italic',
+    lineHeight: 1.5,
+  },
 };
 
 // Nest the above styles under `text`.
