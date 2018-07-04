@@ -64,8 +64,8 @@ export default {
       outline: 0;
     `,
 
-    text: `
-      color: ${colors.fg.accent};
+    plain: `
+      color: inherit;
       text-decoration: none;
 
       &:hover {
@@ -73,7 +73,7 @@ export default {
       }
     `,
 
-    plain: `
+    text: `
       color: inherit;
       text-decoration: none;
       padding-bottom: 1px;

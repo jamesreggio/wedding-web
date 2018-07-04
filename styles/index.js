@@ -1,6 +1,6 @@
 import {css, injectGlobal} from 'emotion';
 import {invariant, lookup} from 'wedding/utils/functional';
-import {base, fonts, colors as _colors, mediaQuery} from './consts';
+import {base, units, fonts, colors as _colors, mediaQuery} from './consts';
 
 /**
  * Global styles.
@@ -117,3 +117,32 @@ const getStyles = (...sheets) => {
 };
 
 export default getStyles(sheet);
+
+/**
+ * Main styles.
+ */
+
+// eslint-disable-next-line no-unused-expressions
+injectGlobal`
+  main {
+    line-height: 1.4;
+
+    section {
+      margin-top: ${units(15)}
+    }
+
+    h3, p {
+      margin-top: ${units(5)}
+    }
+
+    h3 {
+      ${css(text.text.h2)}
+      ${css(colors.fg.black)}
+      text-align: center;
+
+      ${mediaQuery('m')} {
+        text-align: initial;
+      }
+    }
+  }
+`;
