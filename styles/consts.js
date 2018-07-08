@@ -38,7 +38,10 @@ export const mediaQuery = breakpoint => {
 
 // prettier-ignore
 export const layout = {
-  //XXX
+  treesHeight:  pxs(182),
+  headerHeight: pxs(90),
+  sidebarWidth: units(60),
+  contentWidth: units(160),
 };
 
 /**

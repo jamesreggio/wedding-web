@@ -1,6 +1,6 @@
 import {css, injectGlobal} from 'emotion';
 import {invariant, lookup} from 'wedding/utils/functional';
-import {base, units, fonts, colors as _colors, mediaQuery} from './consts';
+import {base, units, pxs, fonts, colors as _colors, mediaQuery} from './consts';
 
 /**
  * Global styles.
@@ -125,7 +125,12 @@ export default getStyles(sheet);
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
   main {
+    font-size: ${pxs(18)};
     line-height: 1.4;
+
+    .big {
+      font-size: ${pxs(20)};
+    }
 
     section {
       margin-top: ${units(15)}

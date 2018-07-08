@@ -1,37 +1,11 @@
-import css, {neg, pxs, units, nbsp, colors, mediaQuery} from 'wedding/styles';
 import {mergeClasses} from 'wedding/utils/containers';
-
-const headerHeight = pxs(90);
-const sidebarWidth = units(60);
-const contentWidth = units(180);
-const treesHeight = pxs(182);
-
-const Names = mergeClasses(() => (
-  <h1 className={css('flex.row items.center disp.init-m')}>
-    <span className={css('disp.blk text.h1 fg.black')}>
-      <span>Cheston</span>
-      <span className={css('disp.none disp.init-m')}>{nbsp}Lee</span>
-    </span>
-    <span className={css('flex.row items.center mx1 mx2-m')}>
-      <span className={css('flex.1 bg.accent h2p mr2')} />
-      <span
-        aria-label="and"
-        className={css('text.h1 text.h2-m fg.accent fg.black-m')}
-      >
-        &amp;
-      </span>
-      <span className={css('flex.1 bg.accent h2p ml5p')} />
-    </span>
-    <span className={css('disp.blk text.h1 fg.black')}>
-      <span>James</span>
-      <span className={css('disp.none disp.init-m')}>{nbsp}Reggio</span>
-    </span>
-  </h1>
-));
+import css, {neg, units, layout, colors, mediaQuery} from 'wedding/styles';
+import {Names, Place, Trees} from 'wedding/components';
+import {Nav, Content} from 'wedding/content';
 
 const Header = mergeClasses(() => (
   <header>
-    <a href="#" title="Back to top" className={css('link.plain')}>
+    <a href="#" title="Back to navigation" className={css('link.plain')}>
       <div className={css('flex.col items.center bg.light pt5')}>
         <div>
           <Names />
@@ -47,41 +21,6 @@ const Header = mergeClasses(() => (
   </header>
 ));
 
-const Place = mergeClasses(() => (
-  <h2 className={css('text.sh1 fg.accent')}>
-    <span className={css('disp.blk')}>December 1, 2018</span>
-    <span className={css('disp.blk')}>The Hall of Springs</span>
-    <span className={css('disp.blk')}>Saratoga Springs, New York</span>
-  </h2>
-));
-
-const Nav = mergeClasses(() => (
-  <nav className={css('text.h2 fg.black')}>
-    <ul>
-      <li>
-        <a href="#couple" className={css('link.text')}>
-          The Couple
-        </a>
-      </li>
-      <li className={css('mt4')}>
-        <a href="#ceremony" className={css('link.text')}>
-          The Ceremony
-        </a>
-      </li>
-      <li className={css('mt4')}>
-        <a href="#travel" className={css('link.text')}>
-          Travel &amp; Lodging
-        </a>
-      </li>
-      <li className={css('mt4')}>
-        <a href="#questions" className={css('link.text')}>
-          Gifts &amp; Questions
-        </a>
-      </li>
-    </ul>
-  </nav>
-));
-
 const Sidebar = mergeClasses(() => (
   <div className={css('align.center')}>
     <header className={css('flex.col items.center')}>
@@ -90,159 +29,6 @@ const Sidebar = mergeClasses(() => (
     </header>
     <Nav className={css('mt15')} />
   </div>
-));
-
-const Trees = mergeClasses(() => (
-  <div>
-    <img
-      alt=""
-      src={require('wedding/static/images/trees.png')}
-      className={css({height: treesHeight})}
-    />
-    <div
-      className={css('pos.abs tn10 b0 l0 r0 zn1', {
-        background: `linear-gradient(${colors.bg.light}00, #babbc1d0)`,
-      })}
-    />
-  </div>
-));
-
-const Filler = () => (
-  <>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget
-      tincidunt nisi. Praesent elementum gravida egestas. Curabitur vitae mattis
-      diam. Praesent et augue et nisl sagittis maximus quis sit amet orci. Donec
-      maximus urna risus, non posuere felis lobortis at. Nulla non hendrerit
-      quam, eu molestie magna. Vivamus eu metus tortor. Praesent sit amet tempor
-      diam. Praesent commodo urna at eros faucibus porttitor. Nullam placerat
-      felis eu nisi pharetra scelerisque varius et risus. Etiam pulvinar risus
-      mi, ut vehicula lacus porttitor a.
-    </p>
-    <p>
-      Sed ut condimentum lorem. Proin imperdiet lectus ut nisl pellentesque
-      ullamcorper. In hac habitasse platea dictumst. Cras id nibh ultricies,
-      vestibulum lorem a, pulvinar metus. Nulla facilisi. Praesent facilisis
-      magna a venenatis aliquam. Mauris fermentum elit sem, placerat semper
-      sapien feugiat sit amet. Vivamus vehicula, ex eu tristique blandit, mi
-      lectus viverra dui, vitae efficitur lorem orci eget purus. Quisque quis
-      magna finibus, cursus risus at, blandit erat.
-    </p>
-    <p>
-      Vivamus in enim non tellus malesuada vulputate. Sed gravida condimentum
-      pretium. Pellentesque fringilla faucibus ex ut commodo. Phasellus eu nibh
-      pharetra, viverra ante sed, ullamcorper nulla. Cras sit amet lorem sed
-      diam vulputate ultricies. Nulla vulputate aliquam dolor pulvinar finibus.
-      Sed vel vestibulum nulla, vel bibendum ante. Sed cursus ipsum ac varius
-      ultrices. Nulla sit amet velit sit amet urna placerat ornare vitae vel
-      dui. Suspendisse lobortis egestas eros, et tincidunt metus convallis non.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget
-      tincidunt nisi. Praesent elementum gravida egestas. Curabitur vitae mattis
-      diam. Praesent et augue et nisl sagittis maximus quis sit amet orci. Donec
-      maximus urna risus, non posuere felis lobortis at. Nulla non hendrerit
-      quam, eu molestie magna. Vivamus eu metus tortor. Praesent sit amet tempor
-      diam. Praesent commodo urna at eros faucibus porttitor. Nullam placerat
-      felis eu nisi pharetra scelerisque varius et risus. Etiam pulvinar risus
-      mi, ut vehicula lacus porttitor a.
-    </p>
-    <p>
-      Sed ut condimentum lorem. Proin imperdiet lectus ut nisl pellentesque
-      ullamcorper. In hac habitasse platea dictumst. Cras id nibh ultricies,
-      vestibulum lorem a, pulvinar metus. Nulla facilisi. Praesent facilisis
-      magna a venenatis aliquam. Mauris fermentum elit sem, placerat semper
-      sapien feugiat sit amet. Vivamus vehicula, ex eu tristique blandit, mi
-      lectus viverra dui, vitae efficitur lorem orci eget purus. Quisque quis
-      magna finibus, cursus risus at, blandit erat.
-    </p>
-    <p>
-      Vivamus in enim non tellus malesuada vulputate. Sed gravida condimentum
-      pretium. Pellentesque fringilla faucibus ex ut commodo. Phasellus eu nibh
-      pharetra, viverra ante sed, ullamcorper nulla. Cras sit amet lorem sed
-      diam vulputate ultricies. Nulla vulputate aliquam dolor pulvinar finibus.
-      Sed vel vestibulum nulla, vel bibendum ante. Sed cursus ipsum ac varius
-      ultrices. Nulla sit amet velit sit amet urna placerat ornare vitae vel
-      dui. Suspendisse lobortis egestas eros, et tincidunt metus convallis non.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget
-      tincidunt nisi. Praesent elementum gravida egestas. Curabitur vitae mattis
-      diam. Praesent et augue et nisl sagittis maximus quis sit amet orci. Donec
-      maximus urna risus, non posuere felis lobortis at. Nulla non hendrerit
-      quam, eu molestie magna. Vivamus eu metus tortor. Praesent sit amet tempor
-      diam. Praesent commodo urna at eros faucibus porttitor. Nullam placerat
-      felis eu nisi pharetra scelerisque varius et risus. Etiam pulvinar risus
-      mi, ut vehicula lacus porttitor a.
-    </p>
-    <p>
-      Sed ut condimentum lorem. Proin imperdiet lectus ut nisl pellentesque
-      ullamcorper. In hac habitasse platea dictumst. Cras id nibh ultricies,
-      vestibulum lorem a, pulvinar metus. Nulla facilisi. Praesent facilisis
-      magna a venenatis aliquam. Mauris fermentum elit sem, placerat semper
-      sapien feugiat sit amet. Vivamus vehicula, ex eu tristique blandit, mi
-      lectus viverra dui, vitae efficitur lorem orci eget purus. Quisque quis
-      magna finibus, cursus risus at, blandit erat.
-    </p>
-    <p>
-      Vivamus in enim non tellus malesuada vulputate. Sed gravida condimentum
-      pretium. Pellentesque fringilla faucibus ex ut commodo. Phasellus eu nibh
-      pharetra, viverra ante sed, ullamcorper nulla. Cras sit amet lorem sed
-      diam vulputate ultricies. Nulla vulputate aliquam dolor pulvinar finibus.
-      Sed vel vestibulum nulla, vel bibendum ante. Sed cursus ipsum ac varius
-      ultrices. Nulla sit amet velit sit amet urna placerat ornare vitae vel
-      dui. Suspendisse lobortis egestas eros, et tincidunt metus convallis non.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget
-      tincidunt nisi. Praesent elementum gravida egestas. Curabitur vitae mattis
-      diam. Praesent et augue et nisl sagittis maximus quis sit amet orci. Donec
-      maximus urna risus, non posuere felis lobortis at. Nulla non hendrerit
-      quam, eu molestie magna. Vivamus eu metus tortor. Praesent sit amet tempor
-      diam. Praesent commodo urna at eros faucibus porttitor. Nullam placerat
-      felis eu nisi pharetra scelerisque varius et risus. Etiam pulvinar risus
-      mi, ut vehicula lacus porttitor a.
-    </p>
-    <p>
-      Sed ut condimentum lorem. Proin imperdiet lectus ut nisl pellentesque
-      ullamcorper. In hac habitasse platea dictumst. Cras id nibh ultricies,
-      vestibulum lorem a, pulvinar metus. Nulla facilisi. Praesent facilisis
-      magna a venenatis aliquam. Mauris fermentum elit sem, placerat semper
-      sapien feugiat sit amet. Vivamus vehicula, ex eu tristique blandit, mi
-      lectus viverra dui, vitae efficitur lorem orci eget purus. Quisque quis
-      magna finibus, cursus risus at, blandit erat.
-    </p>
-    <p>
-      Vivamus in enim non tellus malesuada vulputate. Sed gravida condimentum
-      pretium. Pellentesque fringilla faucibus ex ut commodo. Phasellus eu nibh
-      pharetra, viverra ante sed, ullamcorper nulla. Cras sit amet lorem sed
-      diam vulputate ultricies. Nulla vulputate aliquam dolor pulvinar finibus.
-      Sed vel vestibulum nulla, vel bibendum ante. Sed cursus ipsum ac varius
-      ultrices. Nulla sit amet velit sit amet urna placerat ornare vitae vel
-      dui. Suspendisse lobortis egestas eros, et tincidunt metus convallis non.
-    </p>
-  </>
-);
-
-const Content = mergeClasses(() => (
-  <main>
-    <section id="couple">
-      <h3>The Couple</h3>
-      <Filler />
-    </section>
-    <section id="ceremony">
-      <h3>The Ceremony</h3>
-      <Filler />
-    </section>
-    <section id="travel">
-      <h3>Travel &amp; Lodging</h3>
-      <Filler />
-    </section>
-    <section id="questions">
-      <h3>Gifts &amp; Questions</h3>
-      <Filler />
-    </section>
-  </main>
 ));
 
 const HomePage = () => (
@@ -254,18 +40,18 @@ const HomePage = () => (
           'pos.fixed disp.none flex.col-m justify.center mx10 mx20-xl',
           {
             top: 0,
-            bottom: treesHeight,
-            width: sidebarWidth,
+            bottom: layout.treesHeight,
+            width: layout.sidebarWidth,
           },
         )}
       />
       <div
         className={css('mx5 ml20-m ml40-xl mr15-m mr20-xl', {
-          marginTop: headerHeight,
-          marginBottom: treesHeight,
+          marginTop: layout.headerHeight,
+          marginBottom: layout.treesHeight,
           [mediaQuery('m')]: {
             marginTop: 0,
-            paddingLeft: sidebarWidth,
+            paddingLeft: layout.sidebarWidth,
           },
         })}
       >
@@ -273,7 +59,7 @@ const HomePage = () => (
           <Place />
           <Nav className={css('mt10')} />
         </div>
-        <Content className={css({maxWidth: contentWidth})} />
+        <Content className={css({maxWidth: layout.contentWidth})} />
       </div>
     </div>
     <Trees
