@@ -1,5 +1,7 @@
 import {mergeClasses} from 'wedding/utils/containers';
+
 import Filler from './Filler';
+import Travel from './Travel';
 
 const Content = mergeClasses(() => (
   <main>
@@ -13,7 +15,7 @@ const Content = mergeClasses(() => (
     </section>
     <section id="travel">
       <h3>Travel &amp; Lodging</h3>
-      <Filler />
+      <Travel />
     </section>
     <section id="questions">
       <h3>Gifts &amp; Questions</h3>

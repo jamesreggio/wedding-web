@@ -9,7 +9,7 @@ const text = {
     fontSize: pxs(24),
     fontWeight: 700,
     lineHeight: 1.35,
-    fontFamily: fonts.accent,
+    fontFamily: fonts.headings,
     letterSpacing: 1.3,
     textTransform: 'uppercase',
   },
@@ -18,7 +18,7 @@ const text = {
     fontSize: pxs(18),
     fontWeight: 700,
     lineHeight: 1.35,
-    fontFamily: fonts.accent,
+    fontFamily: fonts.headings,
     letterSpacing: 1.3,
     textTransform: 'uppercase',
   },
@@ -27,6 +27,7 @@ const text = {
     fontSize: pxs(18),
     fontStyle: 'italic',
     lineHeight: 1.5,
+    fontFamily: fonts.accent,
   },
 };
 

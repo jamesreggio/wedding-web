@@ -33,14 +33,28 @@ injectGlobal`
   @font-face {
     font-family: 'Plantin Std';
     src: url(${require('wedding/static/fonts/PlantinStd-Semibold.otf')}) format('opentype');
-    font-weight: 500;
+    font-weight: 600;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Plantin Std';
     src: url(${require('wedding/static/fonts/PlantinStd-SemiboldItalic.ttf')}) format('truetype');
-    font-weight: 500;
+    font-weight: 600;
     font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'BrandonText';
+    src: url(${require('wedding/static/fonts/BrandonText.otf')}) format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'BrandonText';
+    src: url(${require('wedding/static/fonts/BrandonText-Semibold.otf')}) format('opentype');
+    font-weight: 600;
+    font-style: normal;
   }
 `;

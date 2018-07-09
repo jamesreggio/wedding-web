@@ -74,8 +74,9 @@ export const colors = {
 
 // prettier-ignore
 export const fonts = {
-  normal: 'Plantin Std, -apple-system, BlinkMacSystemFont, Helvetica, sans-serif',
-  accent: 'Concourse C3, -apple-system, BlinkMacSystemFont, Helvetica, sans-serif',
+  body: 'Brandon Text, -apple-system, BlinkMacSystemFont, Helvetica, sans-serif',
+  headings: 'Concourse C3, -apple-system, BlinkMacSystemFont, Helvetica, sans-serif',
+  accent: 'Plantin Std, -apple-system, BlinkMacSystemFont, Helvetica, sans-serif',
 };
 
 /**

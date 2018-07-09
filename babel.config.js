@@ -33,7 +33,7 @@ module.exports = () => ({
     [
       require('babel-plugin-transform-assets'),
       {
-        extensions: ['png', 'otf', 'ttf'],
+        extensions: ['jpg', 'png', 'otf', 'ttf'],
         regExp: '/static/(.+)',
         name: '/static/[1]?[sha512:hash:base64:7]',
       },

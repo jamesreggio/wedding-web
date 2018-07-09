@@ -64,16 +64,27 @@ export default {
       outline: 0;
     `,
 
-    plain: `
+    image: `
       color: inherit;
       text-decoration: none;
 
+      &:focus,
       &:hover {
         opacity: 0.75;
       }
     `,
 
-    text: `
+    plain: `
+      color: inherit;
+      text-decoration: underline ${colors.fg.accent}80;
+
+      &:focus,
+      &:hover {
+        color: ${colors.fg.accent};
+      }
+    `,
+
+    h1: `
       color: inherit;
       text-decoration: none;
       padding-bottom: 1px;
@@ -85,50 +96,14 @@ export default {
       }
     `,
 
-    darken: `
-      position: relative;
-      overflow: hidden;
-      display: inline-block;
+    h2: `
       color: inherit;
       text-decoration: none;
 
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: transparent;
-      }
-
+      &:focus,
       &:hover {
-        &::after {
-          background: #00000020;
-        }
-      }
-    `,
-
-    cell: `
-      position: relative;
-      display: block;
-      color: inherit;
-      text-decoration: none;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: -1px;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: transparent;
-      }
-
-      &:hover {
-        &::before {
-          background: #00000008;
-        }
+        outline: 0;
+        border-bottom: 1px solid ${colors.fg.accent};
       }
     `,
   },

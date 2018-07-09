@@ -2,7 +2,7 @@ import {mergeClasses} from 'wedding/utils/containers';
 import css, {layout, colors} from 'wedding/styles';
 
 const Trees = mergeClasses(() => (
-  <div>
+  <div className={css({pointerEvents: 'none'})}>
     <img
       alt=""
       src={require('wedding/static/images/trees.png')}
