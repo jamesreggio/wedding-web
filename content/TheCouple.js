@@ -15,27 +15,31 @@ const TheCouple = () => (
         Hawaii in their first year. After a year together they moved into an
         apartment in San Francisco’s Mission district with the two cats.
       </p>
-      <div className={css()}>
-        <img
-          src={require('wedding/static/images/owls.png')}
-          alt=""
-          className=""
-        />
-        <img
-          src={require('wedding/static/images/campaign.png')}
-          alt=""
-          className=""
-        />
-        <img
-          src={require('wedding/static/images/vancouver_bridge.png')}
-          alt=""
-          className=""
-        />
-        <img
-          src={require('wedding/static/images/mudboys.png')}
-          alt=""
-          className=""
-        />
+      <div className={css('flex.col flex.row-m')}>
+        <div className={css('flex.col')}>
+          <img
+            src={require('wedding/static/images/owls.png')}
+            alt=""
+            className={css('m1')}
+          />
+          <img
+            src={require('wedding/static/images/campaign.png')}
+            alt=""
+            className={css('m1')}
+          />
+        </div>
+        <div className={css('flex.col')}>
+          <img
+            src={require('wedding/static/images/vancouver_bridge.png')}
+            alt=""
+            className={css('m1')}
+          />
+          <img
+            src={require('wedding/static/images/mudboys.png')}
+            alt=""
+            className={css('m1')}
+          />
+        </div>
       </div>
       <p>
         There they had some adventures, explored the city, grew their careers
@@ -58,27 +62,31 @@ const TheCouple = () => (
         love for each other and a frequent hiking destination in the city for
         the two.
       </p>
-      <div>
-        <img
-          src={require('wedding/static/images/huggin.png')}
-          alt=""
-          className=""
-        />
-        <img
-          src={require('wedding/static/images/engagement.png')}
-          alt=""
-          className=""
-        />
-        <img
-          src={require('wedding/static/images/mototour.png')}
-          alt=""
-          className=""
-        />
-        <img
-          src={require('wedding/static/images/tux.png')}
-          alt=""
-          className=""
-        />
+      <div className={css('flex.col flex.row-m')}>
+        <div className={css('flex.col')}>
+          <img
+            src={require('wedding/static/images/huggin.png')}
+            alt=""
+            className={css('m1')}
+          />
+          <img
+            src={require('wedding/static/images/engagement.png')}
+            alt=""
+            className={css('m1')}
+          />
+        </div>
+        <div className={css('flex.col')}>
+          <img
+            src={require('wedding/static/images/mototour.png')}
+            alt=""
+            className={css('m1')}
+          />
+          <img
+            src={require('wedding/static/images/tux.png')}
+            alt=""
+            className={css('m1')}
+          />
+        </div>
       </div>
       <p>
         He had it all planned out, Cheston. Easter Brunch at our favorite tea
