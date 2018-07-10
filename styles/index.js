@@ -199,9 +199,13 @@ injectGlobal`
         bottom: 0;
         left: 0;
 
-        margin: ${neg(pxs(10))};
         background: ${_colors.fg.accent}10;
         border-radius: ${units(1)};
+        margin: ${neg(units(2))};
+
+        ${mediaQuery('m')} {
+          margin: ${neg(pxs(10))};
+        }
       }
     }
 

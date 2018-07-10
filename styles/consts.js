@@ -22,9 +22,10 @@ export const neg = rems => `-${rems}`;
  */
 
 export const breakpoints = {
-  m: 820,
+  s: 520,
+  m: 880,
   l: 1040,
-  xl: 1320,
+  xl: 1140,
 }; // px
 
 export const mediaQuery = breakpoint => {

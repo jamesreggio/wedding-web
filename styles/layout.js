@@ -68,4 +68,15 @@ export default {
     hidden:   {visibility: 'hidden'},
     visible:  {visibility: 'visible'},
   },
+
+  float: {
+    left:     {float:      'left'},
+    right:    {float:      'right'},
+  },
+
+  clear: {
+    left:     {clear:      'left'},
+    right:    {clear:      'right'},
+    both:     {clear:      'both'},
+  },
 };

@@ -6,6 +6,11 @@ import {units, colors} from './consts';
 
 // prettier-ignore
 export default {
+  events: {
+    none: {pointerEvents: 'none'},
+    auto: {pointerEvents: 'auto'},
+  },
+
   list: {
     inline: `
       display: inline;

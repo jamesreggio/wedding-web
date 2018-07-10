@@ -1,5 +1,5 @@
 import {mergeClasses} from 'wedding/utils/containers';
-import css, {neg, pxs, nbsp} from 'wedding/styles';
+import css, {neg, pxs, nbsp, mediaQuery} from 'wedding/styles';
 
 const hotels = [
   {
@@ -63,7 +63,7 @@ const Hotel = mergeClasses(({name, img, href, type, description}) => (
     >
       <img src={img} alt={`Exterior of ${name}`} className={css('wf')} />
     </a>
-    <h5 className={css('mt3')}>
+    <h5 className={css('mt4')}>
       <a
         href={href}
         title={`${name} on TripAdvisor`}
@@ -84,12 +84,16 @@ const Hotel = mergeClasses(({name, img, href, type, description}) => (
 ));
 
 const Hotels = mergeClasses(() => (
-  <div className={css('flex.row flex.wrap mrn7')}>
+  <div className={css('flex.row flex.wrap mrn5-s mrn7-m')}>
     {hotels.map(hotel => (
       <Hotel
         {...hotel}
         key={hotel.name}
-        className={css('mt10 pr7', {maxWidth: '50%'})}
+        className={css('mt10 wf pr5-s pr7-m', {
+          [mediaQuery('s')]: {
+            maxWidth: '50%',
+          },
+        })}
       />
     ))}
   </div>
@@ -108,15 +112,25 @@ const Travel = mergeClasses(() => (
         Saratoga{nbsp}Springs
       </a>, three hours north of New York City.
     </p>
-    <div className={css({clear: 'both'})}>
+    <div className={css('clear.both')}>
       <img
         alt="Downtown Saratoga Springs at night"
         src={require('wedding/static/images/downtown-saratoga.jpg')}
-        className={css('mt1 ml6', {
-          float: 'right',
-          width: pxs(317),
-          height: pxs(200),
-          marginRight: neg(pxs(120)),
+        className={css('mt5 mbn1 wf float.right-s m0-s mt1-s ml5-s ml7-m', {
+          [mediaQuery('s')]: {
+            width: pxs(285),
+            height: pxs(180),
+          },
+
+          [mediaQuery('m')]: {
+            marginRight: neg(pxs(40)),
+          },
+
+          [mediaQuery('xl')]: {
+            width: pxs(317),
+            height: pxs(200),
+            marginRight: neg(pxs(120)),
+          },
         })}
       />
       <p>
@@ -150,7 +164,12 @@ const Travel = mergeClasses(() => (
         welcoming you to Upstate New York.
       </p>
     </div>
-    <h4>Getting to Saratoga Springs</h4>
+    <h4>
+      Getting to Saratoga<span className={css('disp.none disp.init-s')}>
+        {' '}
+        Springs
+      </span>
+    </h4>
     <p>
       Saratoga is{' '}
       <a
@@ -283,7 +302,12 @@ const Travel = mergeClasses(() => (
       flying into Newark (EWR) or Kennedy (JFK). Both of these airports have
       speedy public transit options that can get you directly to Penn Station.
     </p>
-    <h4>Getting around Saratoga Springs</h4>
+    <h4>
+      Getting around Saratoga<span className={css('disp.none disp.init-s')}>
+        {' '}
+        Springs
+      </span>
+    </h4>
     <p>
       <strong>Uber</strong> and <strong>Lyft</strong> are available in Saratoga
       and the surrounding region. You can reliably request a car in under five
@@ -303,7 +327,12 @@ const Travel = mergeClasses(() => (
       It&apos;s also free and plentiful at our wedding venue, though we&apos;d
       prefer you shuttle or use a ride-sharing app.
     </p>
-    <h4>Places to stay in Saratoga Springs</h4>
+    <h4>
+      Places to stay in Saratoga<span className={css('disp.none disp.init-s')}>
+        {' '}
+        Springs
+      </span>
+    </h4>
     <p>
       Saratoga has a wide range of accomodation options, but we&apos;ve arranged
       for special rates at the following hotels.
