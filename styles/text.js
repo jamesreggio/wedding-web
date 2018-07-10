@@ -15,6 +15,15 @@ const text = {
   },
 
   h2: {
+    fontSize: pxs(21),
+    fontWeight: 700,
+    lineHeight: 1.35,
+    fontFamily: fonts.headings,
+    letterSpacing: 1.3,
+    textTransform: 'uppercase',
+  },
+
+  h3: {
     fontSize: pxs(18),
     fontWeight: 700,
     lineHeight: 1.35,

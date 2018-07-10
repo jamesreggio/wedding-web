@@ -10,7 +10,7 @@ const Names = mergeClasses(() => (
     </span>
     <span aria-label="and" className={css('flex.row items.center mx1 mx2-m')}>
       <span className={css('flex.1 bg.accent h2p mr2')} />
-      <span className={css('text.h1 text.h2-m fg.accent fg.black-m')}>
+      <span className={css('text.h1 text.h3-m fg.accent fg.black-m')}>
         &amp;
       </span>
       <span className={css('flex.1 bg.accent h2p ml5p')} />

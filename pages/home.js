@@ -1,11 +1,11 @@
 import {mergeClasses} from 'wedding/utils/containers';
-import css, {neg, units, layout, colors, mediaQuery} from 'wedding/styles';
-import {Names, Place, Trees} from 'wedding/components';
+import css, {neg, units, layout, mediaQuery} from 'wedding/styles';
+import {Names, Place, Fade, Trees} from 'wedding/components';
 import {Nav, Content} from 'wedding/content';
 
 const Header = mergeClasses(() => (
   <header>
-    <a href="#" title="Back to navigation" className={css('link.plain')}>
+    <a href="#" title="Back to navigation" className={css('link.none')}>
       <div className={css('flex.col items.center bg.light pt5')}>
         <div>
           <Names />
@@ -13,11 +13,7 @@ const Header = mergeClasses(() => (
         </div>
       </div>
     </a>
-    <div
-      className={css('self.stretch h7', {
-        background: `linear-gradient(${colors.bg.light}, ${colors.bg.light}00)`,
-      })}
-    />
+    <Fade className={css('self.stretch mtn2p h6')} />
   </header>
 ));
 
@@ -33,10 +29,10 @@ const Sidebar = mergeClasses(() => (
 
 const HomePage = () => (
   <div className={css('pos.full flex.row justify.center')}>
-    <div className={css('pos.rel')}>
-      <Header className={css('pos.fixed disp.none-m t0 l0 r0')} />
+    <div className={css('pos.rel z0')}>
+      <Header className={css('pos.fixed disp.none-m t0 l0 r0 z1')} />
       <div
-        className={css('flex.row-m justify.center', {
+        className={css('pos.rel flex.row-m justify.center z0', {
           marginTop: layout.headerHeight,
           marginBottom: layout.treesHeight,
           [mediaQuery('m')]: {

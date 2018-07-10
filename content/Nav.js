@@ -2,7 +2,7 @@ import {mergeClasses} from 'wedding/utils/containers';
 import css from 'wedding/styles';
 
 const Nav = mergeClasses(() => (
-  <nav className={css('text.h2 fg.black')}>
+  <nav className={css('text.h3 fg.black')}>
     <ul>
       <li>
         <a href="#couple" className={css('link.h1')}>

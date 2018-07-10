@@ -155,17 +155,51 @@ injectGlobal`
      */
 
     h3 {
-      ${css(text.text.h1)}
+      ${css(text.text.h2)}
       ${css(colors.fg.black)}
+      ${css(colors.bg.light)}
+
+      // Ensure light background goes edge-to-edge on viewport.
+      margin-left: ${neg(units(5))};
+      padding-left: ${neg(units(5))};
+      margin-right: ${neg(units(5))};
+      padding-right: ${neg(units(5))};
+
+      // Make sticky (using emperical measurements of Header).
       text-align: center;
+      position: sticky;
+      padding-top: ${units(3)};
+      top: ${units(15)};
+      z-index: 1;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        height: ${units(6)};
+        background: linear-gradient(${_colors.bg.light}, ${_colors.bg.light}00);
+      }
 
       ${mediaQuery('m')} {
+        ${css(text.text.h1)}
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
         text-align: initial;
+        position: static;
+
+        &::after {
+          display: none;
+        }
       }
     }
 
     h4 {
-      ${css(text.text.h2)}
+      ${css(text.text.h3)}
       ${css(colors.fg.black)}
       text-align: center;
     }
@@ -245,7 +279,12 @@ injectGlobal`
      */
 
     section {
-      margin-top: ${units(15)};
+      padding-top: ${units(5)};
+      margin-top: ${units(10)};
+
+      ${mediaQuery('m')} {
+        padding-top: ${units(13)};
+      }
     }
 
     h3, h4, h5 {
