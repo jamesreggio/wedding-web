@@ -32,11 +32,50 @@ const text = {
     textTransform: 'uppercase',
   },
 
+  h4: {
+    fontSize: pxs(15),
+    fontWeight: 700,
+    lineHeight: 1.35,
+    fontFamily: fonts.headings,
+    letterSpacing: 1.3,
+    textTransform: 'uppercase',
+  },
+
   sh1: {
+    fontSize: pxs(18),
+    fontStyle: 'italic',
+    fontWeight: 600,
+    lineHeight: 1.5,
+    fontFamily: fonts.accent,
+  },
+
+  sh2: {
     fontSize: pxs(18),
     fontStyle: 'italic',
     lineHeight: 1.5,
     fontFamily: fonts.accent,
+  },
+
+  sh3: {
+    fontSize: pxs(16),
+    fontStyle: 'italic',
+    lineHeight: 1.5,
+    fontFamily: fonts.accent,
+  },
+
+  b1: {
+    fontSize: pxs(17),
+    lineHeight: 1.5,
+  },
+
+  b2: {
+    fontSize: pxs(15),
+    lineHeight: 1.5,
+  },
+
+  b3: {
+    fontSize: pxs(13),
+    lineHeight: 1.5,
   },
 };
 

@@ -207,7 +207,6 @@ injectGlobal`
     h5 {
       ${css(text.text.sh1)}
       ${css(colors.fg.accent)}
-      font-weight: 600;
     }
 
     /**

@@ -1,7 +1,7 @@
 import {mergeClasses} from 'wedding/utils/containers';
 import css, {neg, units, layout, mediaQuery} from 'wedding/styles';
 import {Names, Place, Fade, Trees} from 'wedding/components';
-import {Nav, Content} from 'wedding/content';
+import {Nav, Content, Rsvp} from 'wedding/content';
 
 const Header = mergeClasses(() => (
   <header>
@@ -86,6 +86,7 @@ const HomePage = () => (
         bottom: neg(units(8)),
       })}
     />
+    <Rsvp />
   </div>
 );
 

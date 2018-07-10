@@ -93,22 +93,24 @@ export default {
       color: inherit;
       text-decoration: none;
       padding-bottom: 1px;
+      border-bottom: 2px solid transparent;
 
       &:focus,
       &:hover {
         outline: 0;
-        border-bottom: 2px solid ${colors.fg.accent};
+        border-bottom-color: ${colors.fg.accent};
       }
     `,
 
     h2: `
       color: inherit;
       text-decoration: none;
+      border-bottom: 1px solid transparent;
 
       &:focus,
       &:hover {
         outline: 0;
-        border-bottom: 1px solid ${colors.fg.accent};
+        border-bottom-color: ${colors.fg.accent};
       }
     `,
   },

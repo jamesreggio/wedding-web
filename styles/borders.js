@@ -1,4 +1,4 @@
-import {units} from './consts';
+import {units, colors} from './consts';
 
 /**
  * Border radius styles.
@@ -117,6 +117,7 @@ const borderSizes = [
 
 // prettier-ignore
 const borderColors = [
+  ['a',  colors.fg.accent],
   ['cc', 'currentColor'],
 ];
 

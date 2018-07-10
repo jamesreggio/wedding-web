@@ -43,6 +43,7 @@ export const layout = {
   headerHeight: pxs(90),
   sidebarWidth: units(60),
   contentWidth: units(160),
+  modalWidth: units(110),
 };
 
 /**
