@@ -16,11 +16,13 @@
   },
   "dependencies": {
     "@babel/runtime": "7.0.0-beta.42",
+    "@firebase/app-types": "^0.3.2",
     "@zeit/next-css": "^0.2.0",
     "autobind-decorator": "^2.1.0",
     "emotion": "^9.2.3",
     "emotion-server": "^9.2.3",
     "express": "^4.16.3",
+    "firebase": "^5.2.0",
     "hoist-non-react-statics": "^2.5.5",
     "immutability-helper": "^2.7.1",
     "next": "^6.1.1",
