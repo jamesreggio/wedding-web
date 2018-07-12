@@ -16,5 +16,5 @@ app.prepare().then(() =>
     .use(express.static('root'))
     .use('/static', express.static('static', immutableOptions))
     .use(routes.getRequestHandler(app))
-    .listen(parseInt(process.env.PORT, 10) || 3000),
+    .listen(process.env.PORT || 3000),
 );
