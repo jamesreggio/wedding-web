@@ -20,7 +20,9 @@ const Header = mergeClasses(() => (
 const Sidebar = mergeClasses(() => (
   <div className={css('align.center')}>
     <header className={css('flex.col items.center')}>
-      <Names />
+      <a href="#" title="Back to top" className={css('link.none')}>
+        <Names />
+      </a>
       <Place className={css('mt15')} />
     </header>
     <Nav className={css('mt15')} />

@@ -10,8 +10,8 @@ const Questions = () => (
     </p>
     <h5>Are children invited?</h5>
     <p>
-      Absolutely, we&apos;d welcome your entire family. Please note this when you
-      RSVP and we&apos;ll be sure to have appropriate meals for your kids.
+      Absolutely, we&apos;d welcome your entire family. Please note this when
+      you RSVP and we&apos;ll be sure to have appropriate meals for your kids.
     </p>
     <h5>What is the requested attired?</h5>
     <p>Traditional American wedding attire is requested.</p>
