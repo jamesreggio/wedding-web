@@ -7,7 +7,8 @@ const immutableOptions = {
   immutable: true,
 };
 
-const app = next({dev: process.env.NODE_ENV !== 'production'});
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({dev});
 
 app.prepare().then(() =>
   express()
@@ -15,5 +16,5 @@ app.prepare().then(() =>
     .use(express.static('root'))
     .use('/static', express.static('static', immutableOptions))
     .use(routes.getRequestHandler(app))
-    .listen(3000),
+    .listen(dev ? 3000 : 80),
 );

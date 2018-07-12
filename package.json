@@ -53,7 +53,6 @@
     "eslint-plugin-react": "^7.7.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
-    "now": "^11.2.8",
     "prettier": "^1.13.5",
     "pretty-quick": "^1.6.0",
     "webpack": "^3.11.0"
