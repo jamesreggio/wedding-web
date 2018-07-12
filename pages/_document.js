@@ -20,6 +20,7 @@ export default class Document extends NextDocument {
     return (
       <html lang="en">
         <Head>
+          <title>Cheston &amp; James &ndash; December 1, 2018</title>
           <link rel="stylesheet" href="/_next/static/style.css" />
           {/* eslint-disable-next-line react/no-danger */}
           <style dangerouslySetInnerHTML={{__html: this.props.css}} />
