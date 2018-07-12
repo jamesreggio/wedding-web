@@ -6,6 +6,7 @@ import {findDOMNode} from 'react-dom';
 import {mergeClasses} from 'wedding/utils/containers';
 import {autobind} from 'wedding/utils/decorators';
 import {Modal} from 'wedding/components';
+import {Router} from 'wedding/routes';
 import sheet, {pxs, fonts, colors} from 'wedding/styles';
 
 const css = sheet.extend({
@@ -66,15 +67,23 @@ class Rsvp extends Component {
   form = null;
 
   componentDidMount() {
-    let addressGiven;
+    const {asPath} = Router;
+    if (asPath !== '/rsvp') {
+      return;
+    }
 
+    let addressGiven;
     try {
       addressGiven = !!global.localStorage.getItem(localStorageKey);
     } catch (error) {
       addressGiven = false;
     }
 
-    this.setState({open: !addressGiven});
+    if (!addressGiven) {
+      this.setState({open: true});
+    } else {
+      this.close();
+    }
   }
 
   render() {
@@ -226,13 +235,13 @@ class Rsvp extends Component {
     const {done} = this.state;
 
     if (done || !Object.keys(this.getFormData()).length) {
-      this.setState({open: false});
+      this.close();
     }
   }
 
   @autobind
   onExplicitClose() {
-    this.setState({open: false});
+    this.close();
     global.localStorage.setItem(localStorageKey, Date.now());
   }
 
@@ -256,6 +265,12 @@ class Rsvp extends Component {
 
     this.setState({done: true});
     global.localStorage.setItem(localStorageKey, Date.now());
+  }
+
+  close() {
+    this.setState({open: false}, () => {
+      Router.pushRoute('/', {shallow: true});
+    });
   }
 
   disableForm() {
