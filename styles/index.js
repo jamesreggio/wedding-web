@@ -277,12 +277,17 @@ injectGlobal`
      * Spacing.
      */
 
-    section {
+    article {
       padding-top: ${units(5)};
       margin-top: ${units(10)};
+      min-height: 80vh;
 
       ${mediaQuery('m')} {
-        padding-top: ${units(13)};
+        padding-top: ${units(22.75)};
+
+        &:first-child {
+          padding-top: 0;
+        }
       }
     }
 

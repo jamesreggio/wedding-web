@@ -39,6 +39,7 @@ const sizingSizes = [
   ['0', 0],
   ['a', 'auto'],
   ['f', '100%'],
+  ['h', '50%'],
 ];
 
 const maxPixels = 20;
