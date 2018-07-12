@@ -1,27 +1,26 @@
 import {mergeClasses} from 'wedding/utils/containers';
 
 import Filler from './Filler';
+import Couple from './Couple';
 import Travel from './Travel';
-import TheCouple from './TheCouple';
 
 const Content = mergeClasses(() => (
   <main>
-    <section id="couple">
-      <h3>The Couple</h3>
-      <TheCouple />
-    </section>
-    <section id="ceremony">
+    <article id="couple">
+      <Couple />
+    </article>
+    <article id="ceremony">
       <h3>The Ceremony</h3>
       <Filler />
-    </section>
-    <section id="travel">
+    </article>
+    <article id="travel">
       <h3>Travel &amp; Lodging</h3>
       <Travel />
-    </section>
-    <section id="questions">
+    </article>
+    <article id="questions">
       <h3>Gifts &amp; Questions</h3>
       <Filler />
-    </section>
+    </article>
   </main>
 ));
 

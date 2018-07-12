@@ -99,7 +99,7 @@ const Hotels = mergeClasses(() => (
   </div>
 ));
 
-const Travel = mergeClasses(() => (
+const Travel = () => (
   <>
     <p className="big">
       We&apos;re celebrating our wedding in Cheston&apos;s hometown of{' '}
@@ -343,6 +343,6 @@ const Travel = mergeClasses(() => (
     </p>
     <Hotels />
   </>
-));
+);
 
 export default Travel;

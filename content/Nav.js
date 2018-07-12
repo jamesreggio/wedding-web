@@ -4,11 +4,6 @@ import css from 'wedding/styles';
 const Nav = mergeClasses(() => (
   <nav className={css('text.h3 fg.black')}>
     <ul>
-      <li>
-        <a href="#couple" className={css('link.h1')}>
-          The Couple
-        </a>
-      </li>
       <li className={css('mt4')}>
         <a href="#ceremony" className={css('link.h1')}>
           The Ceremony
