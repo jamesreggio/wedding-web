@@ -66,9 +66,9 @@ class Rsvp extends Component {
   app = null;
   form = null;
 
-  componentDidMount() {
-    const {asPath} = Router;
-    if (asPath !== '/rsvp') {
+  async componentDidMount() {
+    const {asPath, query} = Router;
+    if (!asPath.startsWith('/rsvp')) {
       return;
     }
 
@@ -79,10 +79,27 @@ class Rsvp extends Component {
       addressGiven = false;
     }
 
+    const email = query.e;
+    if (!addressGiven && email) {
+      try {
+        const snapshot = await this.getFirebaseApp()
+          .database()
+          .ref(`initialResponse/${email}`)
+          .once('value');
+
+        const value = await snapshot.val();
+        addressGiven = !!value;
+      } catch (error) {
+        console.error(error);
+        // No-op.
+      }
+    }
+
     if (!addressGiven) {
       this.setState({open: true});
     } else {
       this.close();
+      global.localStorage.setItem(localStorageKey, Date.now());
     }
   }
 
@@ -253,11 +270,17 @@ class Rsvp extends Component {
       const data = this.getFormData();
       this.disableForm();
 
-      await this.getFirebaseApp()
-        .database()
+      const db = this.getFirebaseApp().database();
+      const email = Router.query.e;
+
+      await db
         .ref('addresses')
         .push()
-        .set(data);
+        .set({...data, email});
+
+      if (email) {
+        await db.ref(`initialResponse/${email}`).set(true);
+      }
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Error saving to Firebase', error);
