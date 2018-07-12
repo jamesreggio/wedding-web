@@ -84,13 +84,12 @@ class Rsvp extends Component {
       try {
         const snapshot = await this.getFirebaseApp()
           .database()
-          .ref(`initialResponse/${email}`)
+          .ref(`initialResponse/${this.encodeEmail(email)}`)
           .once('value');
 
         const value = await snapshot.val();
         addressGiven = !!value;
       } catch (error) {
-        console.error(error);
         // No-op.
       }
     }
@@ -271,7 +270,7 @@ class Rsvp extends Component {
       this.disableForm();
 
       const db = this.getFirebaseApp().database();
-      const email = Router.query.e;
+      const email = Router.query.e || '';
 
       await db
         .ref('addresses')
@@ -279,7 +278,7 @@ class Rsvp extends Component {
         .set({...data, email});
 
       if (email) {
-        await db.ref(`initialResponse/${email}`).set(true);
+        await db.ref(`initialResponse/${this.encodeEmail(email)}`).set(true);
       }
     } catch (error) {
       // eslint-disable-next-line no-console
@@ -336,6 +335,12 @@ class Rsvp extends Component {
     }
 
     return this.app;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  encodeEmail(email = '') {
+    // eslint-disable-next-line no-useless-escape
+    return email.replace(/[.#\$\[\]\/]/g, '_');
   }
 }
 
