@@ -138,7 +138,7 @@ class Rsvp extends Component {
                     type="text"
                     name="name"
                     aria-label="Name"
-                    placeholder="Name"
+                    placeholder="Name(s)"
                     autoComplete="name"
                     className={css('input')}
                     required
