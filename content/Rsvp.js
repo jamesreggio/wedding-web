@@ -129,7 +129,7 @@ class Rsvp extends Component {
                 >
                   <span className={css('disp.none disp.init-m')}>Click</span>{' '}
                   <span className={css('disp.none-m')}>Tap</span> here if
-                  you&apos;ve alrady shared your address.
+                  you&apos;ve already shared your address.
                 </a>
               </p>
               <form ref={setFormRef} onSubmit={onSubmit}>
