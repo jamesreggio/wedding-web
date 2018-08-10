@@ -11,6 +11,7 @@ import sheet, {pxs, fonts, colors} from 'wedding/styles';
 
 const css = sheet.extend({
   input: `
+    width: 100%;
     display: block;
     background: transparent;
     padding: 0;
@@ -139,7 +140,7 @@ class Rsvp extends Component {
                     aria-label="Name"
                     placeholder="Name(s)"
                     autoComplete="name"
-                    className={css('input wf')}
+                    className={css('input')}
                     required
                   />
                 </div>
@@ -150,42 +151,48 @@ class Rsvp extends Component {
                     aria-label="Address"
                     placeholder="Address"
                     autoComplete="shipping street-address"
-                    className={css('input wf')}
+                    className={css('input')}
                     maxLength={100}
                     required
                   />
                 </div>
                 <div className={css('flex.row mt3')}>
-                  <input
-                    type="text"
-                    name="city"
-                    aria-label="City"
-                    placeholder="City"
-                    autoComplete="shipping address-level2"
-                    className={css('input', {flex: 5})}
-                    maxLength={40}
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="state"
-                    aria-label="State"
-                    placeholder="State"
-                    autoComplete="shipping address-level1"
-                    className={css('input ml2', {flex: 1.5})}
-                    maxLength={2}
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="zip"
-                    aria-label="ZIP"
-                    placeholder="ZIP"
-                    autoComplete="shipping postal-code"
-                    className={css('input ml2', {flex: 2})}
-                    maxLength={10}
-                    required
-                  />
+                  <div className={css({flex: 5})}>
+                    <input
+                      type="text"
+                      name="city"
+                      aria-label="City"
+                      placeholder="City"
+                      autoComplete="shipping address-level2"
+                      className={css('input')}
+                      maxLength={40}
+                      required
+                    />
+                  </div>
+                  <div className={css('ml2', {flex: 1.5})}>
+                    <input
+                      type="text"
+                      name="state"
+                      aria-label="State"
+                      placeholder="State"
+                      autoComplete="shipping address-level1"
+                      className={css('input')}
+                      maxLength={2}
+                      required
+                    />
+                  </div>
+                  <div className={css('ml2', {flex: 2})}>
+                    <input
+                      type="text"
+                      name="zip"
+                      aria-label="ZIP"
+                      placeholder="ZIP"
+                      autoComplete="shipping postal-code"
+                      className={css('input')}
+                      maxLength={10}
+                      required
+                    />
+                  </div>
                 </div>
                 <div className={css('align.center mt6')}>
                   <button
