@@ -6,9 +6,9 @@ module.exports = () => ({
       require('next/babel'),
       {
         'preset-env': {
-          targets: {
-            useBuiltIns: 'usage',
+          useBuiltIns: 'usage',
 
+          targets: {
             // For Next.js server rendering.
             node: 'current',
 
