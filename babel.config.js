@@ -7,6 +7,8 @@ module.exports = () => ({
       {
         'preset-env': {
           targets: {
+            useBuiltIns: 'usage',
+
             // For Next.js server rendering.
             node: 'current',
 
