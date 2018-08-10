@@ -7,7 +7,7 @@ import {invariant} from 'wedding/utils/functional';
 const toFixed = value => {
   value = Number(value);
   // eslint-disable-next-line no-restricted-globals
-  invariant(isNaN(value), `Expected numeric value: ${value}`);
+  invariant(!isNaN(value), `Expected numeric value: ${value}`);
   return value.toFixed(4);
 };
 
