@@ -11,7 +11,6 @@ import sheet, {pxs, fonts, colors} from 'wedding/styles';
 
 const css = sheet.extend({
   input: `
-    width: 100%;
     display: block;
     background: transparent;
     padding: 0;
@@ -140,7 +139,7 @@ class Rsvp extends Component {
                     aria-label="Name"
                     placeholder="Name(s)"
                     autoComplete="name"
-                    className={css('input')}
+                    className={css('input wf')}
                     required
                   />
                 </div>
@@ -151,7 +150,7 @@ class Rsvp extends Component {
                     aria-label="Address"
                     placeholder="Address"
                     autoComplete="shipping street-address"
-                    className={css('input')}
+                    className={css('input wf')}
                     maxLength={100}
                     required
                   />
