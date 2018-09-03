@@ -231,6 +231,7 @@ injectGlobal`
         right: 0;
         bottom: 0;
         left: 0;
+        z-index: -1;
 
         background: ${_colors.fg.accent}10;
         border-radius: ${units(1)};

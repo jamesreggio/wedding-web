@@ -6,13 +6,36 @@ const hotels = [
     name: 'The Embassy Suites',
     img: require('wedding/static/images/embassy-suites.jpg'),
     href:
-      'https://www.tripadvisor.com/Hotel_Review-g48562-d7332306-Reviews-Embassy_Suites_by_Hilton_Saratoga_Springs-Saratoga_Springs_New_York.html',
+      'https://embassysuites.hilton.com/en/es/groups/personalized/A/ALBESES-LRW-20181130/index.jhtml?WT.mc_id=POG',
     type: 'Solid',
     description: `
-      This Embassy Suites opened in 2015, so the rooms are modern and spacious.
-      It's only one block away from Saratoga's main street, so it's easy to
-      explore the town on foot and take in the Christmas spirit.
+      This Embassy Suites opened in 2015, so the rooms are modern and
+      spacious. It's only one block away from Saratoga's main street, so
+      it's easy to explore the town on foot and take in the Christmas
+      spirit.
     `,
+    additional: (
+      <>
+        <div className="box">
+          <p className={css('mt4')}>
+            They&apos;ve agreed to a rate of <strong>$149</strong> per night on
+            Friday and Saturday, and <strong>$129</strong> on Sunday.
+          </p>
+          <p className={css('mt2')}>
+            To book, visit{' '}
+            <a
+              href="https://embassysuites.hilton.com/en/es/groups/personalized/A/ALBESES-LRW-20181130/index.jhtml?WT.mc_id=POG"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              this site
+            </a>{' '}
+            by <em>October 30</em>, or mention <strong>Group Code: LRW</strong>{' '}
+            when calling.
+          </p>
+        </div>
+      </>
+    ),
   },
   {
     name: 'The Gideon Putnam',
@@ -25,6 +48,27 @@ const hotels = [
       the Hall of Springs (our wedding venue) within the beautiful Spa State
       Park. Its historic spa boasts 42 treatment rooms fed by natural springs.
     `,
+    additional: (
+      <>
+        <div className="box">
+          <p className={css('mt4')}>
+            They&apos;ve agreed to a rate of <strong>$110</strong> per night for
+            standard rooms and <strong>$160</strong> per night for suites.
+          </p>
+          <p className={css('mt2')}>
+            To book, visit{' '}
+            <a
+              href="https://www.gideonputnam.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              this site
+            </a>, select <strong>Code Type: Promo</strong> and use{' '}
+            <strong>Code: WEDD2018</strong>, or call.
+          </p>
+        </div>
+      </>
+    ),
   },
   {
     name: 'The Adelphi',
@@ -52,36 +96,39 @@ const hotels = [
   },
 ];
 
-const Hotel = mergeClasses(({name, img, href, type, description}) => (
-  <div className="small">
-    <a
-      href={href}
-      title={`${name} on TripAdvisor`}
-      rel="noopener noreferrer"
-      target="_blank"
-      className={css('disp.blk lh0')}
-    >
-      <img src={img} alt={`Exterior of ${name}`} className={css('wf')} />
-    </a>
-    <h5 className={css('mt4')}>
+const Hotel = mergeClasses(
+  ({name, img, href, type, description, additional}) => (
+    <div className="small">
       <a
         href={href}
         title={`${name} on TripAdvisor`}
         rel="noopener noreferrer"
         target="_blank"
+        className={css('disp.blk lh0')}
       >
-        {name}
+        <img src={img} alt={`Exterior of ${name}`} className={css('wf')} />
       </a>
-    </h5>
-    <p className={css('mt1')}>
-      <em className={css('weight.600')}>
-        {type}
-        <span aria-hidden="true"> &middot; </span>
-      </em>
-      {description}
-    </p>
-  </div>
-));
+      <h5 className={css('mt4')}>
+        <a
+          href={href}
+          title={`${name} on TripAdvisor`}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {name}
+        </a>
+      </h5>
+      <p className={css('mt1')}>
+        <em className={css('weight.600')}>
+          {type}
+          <span aria-hidden="true"> &middot; </span>
+        </em>
+        {description}
+      </p>
+      {additional}
+    </div>
+  ),
+);
 
 const Hotels = mergeClasses(() => (
   <div className={css('flex.row flex.wrap mrn5-s mrn7-m')}>
@@ -334,12 +381,16 @@ const Travel = () => (
       </span>
     </h4>
     <p>
-      Saratoga has a wide range of accomodation options, but we&apos;ve arranged
-      for special rates at the following hotels.
+      Saratoga has a wide range of accomodation options, but these are our
+      favorites. We&apos;ve arranged for special rates at the{' '}
+      <strong>Embassy Suites</strong> and <strong>Gideon Putnam</strong>, which
+      you&apos;ll find below.
     </p>
     <p className="box">
-      We&apos;re still working out the final pricing details with our preferred
-      hotels. Please check back after July 15 for updated information.
+      If you have any trouble booking using our room rates, please get in touch
+      with us via email at{' '}
+      <a href="mailto:james.reggio@gmail.com">james.reggio@gmail.com</a> or{' '}
+      <a href="mailto:chestonlloyd@gmail.com">chestonlloyd@gmail.com</a>.
     </p>
     <Hotels />
   </>
