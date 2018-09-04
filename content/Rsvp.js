@@ -1,3 +1,4 @@
+import serialize from 'form-serialize';
 import firebase from 'firebase/app';
 import 'firebase/database';
 
@@ -420,21 +421,7 @@ class Rsvp extends Component {
   }
 
   getFormData() {
-    if (!this.form) {
-      return {};
-    }
-
-    // eslint-disable-next-line no-undef
-    return Array.from(new FormData(this.form)).reduce(
-      (data, [name, value]) =>
-        !name || !value
-          ? data
-          : {
-              ...data,
-              [name]: value,
-            },
-      {},
-    );
+    return !this.form ? {} : serialize(this.form, {hash: true});
   }
 
   getFirebaseApp() {
