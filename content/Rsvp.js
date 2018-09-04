@@ -199,6 +199,7 @@ class Rsvp extends Component {
                         type="radio"
                         name="attending"
                         value="true"
+                        checked={attending === true}
                         onChange={onAttendingChange}
                         required
                       />
@@ -215,6 +216,7 @@ class Rsvp extends Component {
                         type="radio"
                         name="attending"
                         value="false"
+                        checked={attending === false}
                         onChange={onAttendingChange}
                         required
                       />
