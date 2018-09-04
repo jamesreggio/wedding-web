@@ -1,4 +1,4 @@
-import {units, colors} from './consts';
+import {units, colors, mediaQuery} from './consts';
 
 /**
  * Miscellaneous styles.
@@ -73,9 +73,14 @@ export default {
       color: inherit;
       text-decoration: none;
 
-      &:focus,
-      &:hover {
+      &:focus {
         opacity: 0.75;
+      }
+
+      ${mediaQuery('m')} {
+        &:hover {
+          opacity: 0.75;
+        }
       }
     `,
 
@@ -83,9 +88,14 @@ export default {
       color: inherit;
       text-decoration: underline ${colors.fg.accent}80;
 
-      &:focus,
-      &:hover {
+      &:focus {
         color: ${colors.fg.accent};
+      }
+
+      ${mediaQuery('m')} {
+        &:hover {
+          color: ${colors.fg.accent};
+        }
       }
     `,
 
@@ -95,10 +105,16 @@ export default {
       padding-bottom: 1px;
       border-bottom: 2px solid transparent;
 
-      &:focus,
-      &:hover {
+      &:focus {
         outline: 0;
         border-bottom-color: ${colors.fg.accent};
+      }
+
+      ${mediaQuery('m')} {
+        &:hover {
+          outline: 0;
+          border-bottom-color: ${colors.fg.accent};
+        }
       }
     `,
 
@@ -107,10 +123,16 @@ export default {
       text-decoration: none;
       border-bottom: 1px solid transparent;
 
-      &:focus,
-      &:hover {
+      &:focus {
         outline: 0;
         border-bottom-color: ${colors.fg.accent};
+      }
+
+      ${mediaQuery('m')} {
+        &:hover {
+          outline: 0;
+          border-bottom-color: ${colors.fg.accent};
+        }
       }
     `,
   },
