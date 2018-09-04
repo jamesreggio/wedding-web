@@ -426,12 +426,12 @@ class Rsvp extends Component {
 
     // eslint-disable-next-line no-undef
     return Array.from(new FormData(this.form)).reduce(
-      (data, element) =>
-        !element.name || !element.value
+      (data, [name, value]) =>
+        !name || !value
           ? data
           : {
               ...data,
-              [element.name]: element.value,
+              [name]: value,
             },
       {},
     );
