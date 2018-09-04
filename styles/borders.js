@@ -41,6 +41,7 @@ const radiusSides = [
 
 // prettier-ignore
 const radiusSizes = [
+  ['0', '0'],
   ['r', '50%'],
   ['1', units(1)],
   ['2', units(2)],

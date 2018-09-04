@@ -27,7 +27,7 @@ injectGlobal`
   }
 `;
 
-const Modal = ({children, className, onRequestClose, ...props}) => (
+const Modal = ({header, children, className, onRequestClose, ...props}) => (
   <ReactModal
     ariaHideApp={false}
     {...props}
@@ -41,9 +41,13 @@ const Modal = ({children, className, onRequestClose, ...props}) => (
       className={css('pos.abs t7p l0 r0 flex.row flex.center')}
     >
       <div className={css('flex.row items.center bg.light px2')}>
-        <span className={css('text.h2 fg.black')}>C</span>
-        <span className={css('text.h4 fg.accent mx1')}>&amp;</span>
-        <span className={css('text.h2 fg.black')}>J</span>
+        {header ?? (
+          <>
+            <span className={css('text.h2 fg.black')}>C</span>
+            <span className={css('text.h4 fg.accent mx1')}>&amp;</span>
+            <span className={css('text.h2 fg.black')}>J</span>
+          </>
+        )}
       </div>
     </div>
     <div className={cx(css('b2pa p4 mx4 my5'), className)}>{children}</div>
@@ -51,6 +55,7 @@ const Modal = ({children, className, onRequestClose, ...props}) => (
 );
 
 Modal.propTypes = {
+  header: pt.node,
   children: pt.node,
 
   // Modal

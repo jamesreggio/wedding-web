@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 import {mergeClasses} from 'wedding/utils/containers';
 import css from 'wedding/styles';
 
@@ -12,6 +14,15 @@ const Nav = mergeClasses(() => (
       <li className={css('mt4')}>
         <a href="#questions" className={css('link.h1')}>
           Gifts &amp; Questions
+        </a>
+      </li>
+      <li className={css('mt4')}>
+        <a
+          href="#0"
+          onClick={() => window?.openRsvp()}
+          className={css('link.h1')}
+        >
+          RSVP
         </a>
       </li>
     </ul>

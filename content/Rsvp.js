@@ -6,8 +6,7 @@ import {findDOMNode} from 'react-dom';
 import {mergeClasses} from 'wedding/utils/containers';
 import {autobind} from 'wedding/utils/decorators';
 import {Modal} from 'wedding/components';
-import {Router} from 'wedding/routes';
-import sheet, {pxs, fonts, colors} from 'wedding/styles';
+import sheet, {cx, pxs, units, fonts, colors} from 'wedding/styles';
 
 const css = sheet.extend({
   input: `
@@ -39,6 +38,62 @@ const css = sheet.extend({
     }
   `,
 
+  radio: `
+    & > div {
+      position: relative;
+      width: ${units(6)};
+      font-size: ${pxs(22)};
+      display: inline-block;
+      overflow: hidden;
+
+      & > input {
+        margin-left: -100px;
+
+        & + .check {
+          border-bottom: 1px solid ${colors.fg.black}40;
+          width: 100%;
+          height: 100%;
+
+          &::after {
+            display: none;
+            content: '\u2714';
+            text-align: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+          }
+        }
+
+        &:focus {
+          outline: 0;
+
+          & + .check {
+            border-bottom-color: ${colors.fg.black};
+          }
+        }
+
+        &:checked {
+          & + .check {
+            &::after {
+              display: block;
+              color: ${colors.fg.accent};
+            }
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .check {
+        &::after {
+          display: block;
+          color: ${colors.fg.accent}20;
+        }
+      }
+    }
+  `,
+
   submit: `
     cursor: pointer;
     background: transparent;
@@ -55,46 +110,33 @@ const css = sheet.extend({
   `,
 });
 
-const localStorageKey = 'addressGiven';
+const localStorageKey = 'attendanceGiven';
 
 class Rsvp extends Component {
   state = {
     open: false,
     done: false,
+    attending: null,
   };
 
   app = null;
   form = null;
 
   async componentDidMount() {
-    const {asPath, query} = Router;
-    if (!asPath.startsWith('/rsvp')) {
-      return;
-    }
+    //XXX fuck it, don't have time to fight with next/router
+    // eslint-disable-next-line no-undef
+    window.openRsvp = () => {
+      this.setState({open: true});
+    };
 
-    let addressGiven;
+    let attendanceGiven;
     try {
-      addressGiven = !!global.localStorage.getItem(localStorageKey);
+      attendanceGiven = !!global.localStorage.getItem(localStorageKey);
     } catch (error) {
-      addressGiven = false;
+      attendanceGiven = false;
     }
 
-    const email = query.e;
-    if (!addressGiven && email) {
-      try {
-        const snapshot = await this.getFirebaseApp()
-          .database()
-          .ref(`initialResponse/${this.encodeEmail(email)}`)
-          .once('value');
-
-        const value = await snapshot.val();
-        addressGiven = !!value;
-      } catch (error) {
-        // No-op.
-      }
-    }
-
-    if (!addressGiven) {
+    if (!attendanceGiven) {
       this.setState({open: true});
     } else {
       this.close();
@@ -104,24 +146,29 @@ class Rsvp extends Component {
 
   render() {
     const {
-      setContentRef,
       setFormRef,
       onImplicitClose,
       onExplicitClose,
+      onAttendingChange,
       onSubmit,
-      state: {open, done},
+      state: {open, done, attending},
     } = this;
 
+    const modalHeader = <span className={css('text.h2 fg.black')}>RSVP</span>;
+
     return (
-      <Modal isOpen={open} onRequestClose={onImplicitClose}>
-        <div ref={setContentRef} className={css('flex.col justify.center')}>
+      <Modal
+        isOpen={open}
+        header={modalHeader}
+        onRequestClose={onImplicitClose}
+      >
+        <div className={css('flex.col justify.center')}>
           {!done ? (
             <>
-              <h3 className={css('text.b1 fg.black')}>
-                Please share your address with us so we may send you a formal
-                invitation.
+              <h3 className={css('text.b1 fg.black mt2')}>
+                Please let us know if you will be attending.
               </h3>
-              <p className={css('mt4')}>
+              <p className={css('mt2')}>
                 <a
                   href="#0"
                   onClick={onExplicitClose}
@@ -129,11 +176,11 @@ class Rsvp extends Component {
                 >
                   <span className={css('disp.none disp.init-m')}>Click</span>{' '}
                   <span className={css('disp.none-m')}>Tap</span> here if
-                  you&apos;ve already shared your address.
+                  you&apos;ve already RSVPed.
                 </a>
               </p>
               <form ref={setFormRef} onSubmit={onSubmit}>
-                <div className={css('mt4')}>
+                <div className={css('mt6')}>
                   <input
                     type="text"
                     name="name"
@@ -144,73 +191,123 @@ class Rsvp extends Component {
                     required
                   />
                 </div>
-                <div className={css('mt3')}>
-                  <input
-                    type="text"
-                    name="street"
-                    aria-label="Address"
-                    placeholder="Address"
-                    autoComplete="shipping street-address"
-                    className={css('input')}
-                    maxLength={100}
-                    required
-                  />
+                <div className={css('mt4')}>
+                  {/* eslint-disable-next-line */}
+                  <label className={css('radio flex.row items.center')}>
+                    <div className={css('mr10p')}>
+                      <input
+                        type="radio"
+                        name="attending"
+                        value="true"
+                        onChange={onAttendingChange}
+                        required
+                      />
+                      <div className="check" />
+                    </div>
+                    <span className={css('text.b2 fg.black')}>
+                      Accepts with pleasure
+                    </span>
+                  </label>
+                  {/* eslint-disable-next-line */}
+                  <label className={css('radio flex.row items.center mt3')}>
+                    <div className={css('mr10p')}>
+                      <input
+                        type="radio"
+                        name="attending"
+                        value="false"
+                        onChange={onAttendingChange}
+                        required
+                      />
+                      <div className="check" />
+                    </div>
+                    <span className={css('text.b2 fg.black')}>
+                      Regretfully declines
+                    </span>
+                  </label>
                 </div>
-                <div className={css('flex.row mt3')}>
-                  <div className={css({flex: 5})}>
-                    <input
-                      type="text"
-                      name="city"
-                      aria-label="City"
-                      placeholder="City"
-                      autoComplete="shipping address-level2"
-                      className={css('input')}
-                      maxLength={40}
-                      required
-                    />
+                {attending && (
+                  <>
+                    {/* eslint-disable-next-line */}
+                    <label className={css('flex.row items.center mt6')}>
+                      <span className={css('text.b2 fg.black', {flex: 4})}>
+                        Number of Adults
+                      </span>
+                      <input
+                        type="number"
+                        name="adults"
+                        min="0"
+                        max="9"
+                        className={css('input', {flex: 1})}
+                        required
+                      />
+                    </label>
+                    {/* eslint-disable-next-line */}
+                    <label className={css('flex.row items.center mt1')}>
+                      <span className={css('text.b2 fg.black', {flex: 4})}>
+                        Number of Children
+                      </span>
+                      <input
+                        type="number"
+                        name="children"
+                        min="0"
+                        max="9"
+                        className={css('input', {flex: 1})}
+                      />
+                    </label>
+                    <div className={css('mt6')}>
+                      <input
+                        type="text"
+                        name="notes"
+                        aria-label="Notes"
+                        placeholder="Any dietary or mobility requests?"
+                        className={css('input')}
+                      />
+                    </div>
+                  </>
+                )}
+                {attending != null && (
+                  <div className={css('align.center mt6')}>
+                    <button
+                      type="submit"
+                      className={css('submit text.b1 fg.black link.h2')}
+                    >
+                      Submit &rarr;
+                    </button>
                   </div>
-                  <div className={css('ml2', {flex: 1.5})}>
-                    <input
-                      type="text"
-                      name="state"
-                      aria-label="State"
-                      placeholder="State"
-                      autoComplete="shipping address-level1"
-                      className={css('input')}
-                      maxLength={2}
-                      required
-                    />
-                  </div>
-                  <div className={css('ml2', {flex: 2})}>
-                    <input
-                      type="text"
-                      name="zip"
-                      aria-label="ZIP"
-                      placeholder="ZIP"
-                      autoComplete="shipping postal-code"
-                      className={css('input')}
-                      maxLength={10}
-                      required
-                    />
-                  </div>
-                </div>
-                <div className={css('align.center mt6')}>
-                  <button
-                    type="submit"
-                    className={css('submit text.b1 fg.black link.h2')}
-                  >
-                    Submit &rarr;
-                  </button>
-                </div>
+                )}
               </form>
             </>
           ) : (
             <>
               <h3 className={css('text.b1 fg.black')}>
-                Thank you for sharing your address. We look forward to having
-                you.
+                Thank you for your response.
               </h3>
-              <p className={css('mt8')}>
+              <h3 className={css('text.sh3 fg.accent mt3')}>
+                {attending ? (
+                  <span>We look forward to celebrating with you!</span>
+                ) : (
+                  <span>
+                    We&apos;ll miss you, but we appreciate your love and
+                    support.
+                  </span>
+                )}
+              </h3>
+              {attending && (
+                <div className="main">
+                  <p
+                    className={cx(
+                      'box',
+                      css('text.b2 fg.black mxn2 px2 d0 mt6 mb4'),
+                    )}
+                  >
+                    Cheston&apos;s parents will be hosting a casual brunch at
+                    their home in Saratoga from <em>10am</em> to <em>2pm</em> on
+                    Sunday following the wedding, so please consider joining us
+                    when you make your travel plans.
+                  </p>
+                </div>
+              )}
+              <p className={css('mt2')}>
                 <a
                   href="#"
                   onClick={onImplicitClose}
@@ -219,32 +316,22 @@ class Rsvp extends Component {
                   See the rest of the website &rarr;
                 </a>
               </p>
-              <p className={css('mt2')}>
-                <a
-                  href="#travel"
-                  onClick={onImplicitClose}
-                  className={css('text.b1 fg.black link.h2')}
-                >
-                  Jump directly to travel information &rarr;
-                </a>
-              </p>
+              {attending && (
+                <p className={css('mt2')}>
+                  <a
+                    href="#travel"
+                    onClick={onImplicitClose}
+                    className={css('text.b1 fg.black link.h2')}
+                  >
+                    Jump directly to travel information &rarr;
+                  </a>
+                </p>
+              )}
             </>
           )}
         </div>
       </Modal>
     );
-  }
-
-  @autobind
-  // eslint-disable-next-line class-methods-use-this
-  setContentRef(ref) {
-    const node = findDOMNode(ref);
-
-    if (!node) {
-      return;
-    }
-
-    node.style.height = `${node.offsetHeight}px`;
   }
 
   @autobind
@@ -256,7 +343,7 @@ class Rsvp extends Component {
   onImplicitClose() {
     const {done} = this.state;
 
-    if (done || !Object.keys(this.getFormData()).length) {
+    if (done || Object.keys(this.getFormData()).length <= 1) {
       this.close();
     }
   }
@@ -268,6 +355,13 @@ class Rsvp extends Component {
   }
 
   @autobind
+  onAttendingChange(e) {
+    this.setState({
+      attending: e.target.value === 'true',
+    });
+  }
+
+  @autobind
   async onSubmit(e) {
     e.preventDefault();
 
@@ -276,16 +370,11 @@ class Rsvp extends Component {
       this.disableForm();
 
       const db = this.getFirebaseApp().database();
-      const email = Router.query.e || '';
 
       await db
-        .ref('addresses')
+        .ref('rsvps')
         .push()
-        .set({...data, email});
-
-      if (email) {
-        await db.ref(`initialResponse/${this.encodeEmail(email)}`).set(true);
-      }
+        .set(data);
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Error saving to Firebase', error);
@@ -296,8 +385,10 @@ class Rsvp extends Component {
   }
 
   close() {
-    this.setState({open: false}, () => {
-      Router.pushRoute('/', {shallow: true});
+    this.setState({
+      done: false,
+      open: false,
+      attending: null,
     });
   }
 

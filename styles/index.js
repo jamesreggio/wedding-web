@@ -133,13 +133,14 @@ export default getStyles(sheet);
 
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
-  main {
+  main, .main {
     /**
      * Sizing.
      */
 
     font-size: ${pxs(17)};
     line-height: 1.4;
+    z-index: 0;
 
     .big {
       font-size: ${pxs(21)};
