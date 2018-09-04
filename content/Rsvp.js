@@ -407,7 +407,8 @@ class Rsvp extends Component {
       return {};
     }
 
-    return Array.from(findDOMNode(this.form).elements).reduce(
+    // eslint-disable-next-line no-undef
+    return Array.from(new FormData(this.form)).reduce(
       (data, element) =>
         !element.name || !element.value
           ? data
