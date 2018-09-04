@@ -204,10 +204,13 @@ class Rsvp extends Component {
                   />
                 </div>
                 <div className={css('mt4')}>
-                  {/* eslint-disable-next-line */}
-                  <label className={css('radio flex.row items.center')}>
+                  <label
+                    htmlFor="attending-true"
+                    className={css('radio flex.row items.center')}
+                  >
                     <div className={css('mr10p')}>
                       <input
+                        id="attending-true"
                         type="radio"
                         name="attending"
                         value="true"
@@ -221,10 +224,13 @@ class Rsvp extends Component {
                       Accepts with pleasure
                     </span>
                   </label>
-                  {/* eslint-disable-next-line */}
-                  <label className={css('radio flex.row items.center mt3')}>
+                  <label
+                    htmlFor="attending-false"
+                    className={css('radio flex.row items.center mt3')}
+                  >
                     <div className={css('mr10p')}>
                       <input
+                        id="attending-false"
                         type="radio"
                         name="attending"
                         value="false"
