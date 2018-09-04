@@ -139,7 +139,7 @@ class Rsvp extends Component {
     if (!attendanceGiven) {
       this.setState({open: true});
     } else {
-      this.close();
+      this.onClose();
       global.localStorage.setItem(localStorageKey, Date.now());
     }
   }
@@ -147,6 +147,7 @@ class Rsvp extends Component {
   render() {
     const {
       setFormRef,
+      onClose,
       onImplicitClose,
       onExplicitClose,
       onAttendingChange,
@@ -177,6 +178,17 @@ class Rsvp extends Component {
                   <span className={css('disp.none disp.init-m')}>Click</span>{' '}
                   <span className={css('disp.none-m')}>Tap</span> here if
                   you&apos;ve already RSVPed.
+                </a>
+              </p>
+              <p className={css('mt2')}>
+                <a
+                  href="#0"
+                  onClick={onClose}
+                  className={css('text.b2 fg.black opacity.mid link.h2')}
+                >
+                  <span className={css('disp.none disp.init-m')}>Click</span>{' '}
+                  <span className={css('disp.none-m')}>Tap</span> here to RSVP
+                  later.
                 </a>
               </p>
               <form ref={setFormRef} onSubmit={onSubmit}>
@@ -346,14 +358,23 @@ class Rsvp extends Component {
     const {done} = this.state;
 
     if (done || Object.keys(this.getFormData()).length <= 1) {
-      this.close();
+      this.onClose();
     }
   }
 
   @autobind
   onExplicitClose() {
-    this.close();
+    this.onClose();
     global.localStorage.setItem(localStorageKey, Date.now());
+  }
+
+  @autobind
+  onClose() {
+    this.setState({
+      done: false,
+      open: false,
+      attending: null,
+    });
   }
 
   @autobind
@@ -384,14 +405,6 @@ class Rsvp extends Component {
 
     this.setState({done: true});
     global.localStorage.setItem(localStorageKey, Date.now());
-  }
-
-  close() {
-    this.setState({
-      done: false,
-      open: false,
-      attending: null,
-    });
   }
 
   disableForm() {
