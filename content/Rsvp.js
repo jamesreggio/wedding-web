@@ -6,7 +6,7 @@ import {findDOMNode} from 'react-dom';
 import {mergeClasses} from 'wedding/utils/containers';
 import {autobind} from 'wedding/utils/decorators';
 import {Modal} from 'wedding/components';
-import sheet, {cx, pxs, units, fonts, colors} from 'wedding/styles';
+import sheet, {cx, pxs, units, fonts, colors, mediaQuery} from 'wedding/styles';
 
 const css = sheet.extend({
   input: `
@@ -84,11 +84,13 @@ const css = sheet.extend({
       }
     }
 
-    &:hover {
-      .check {
-        &::after {
-          display: block;
-          color: ${colors.fg.accent}20;
+    ${mediaQuery('m')} {
+      &:hover {
+        .check {
+          &::after {
+            display: block;
+            color: ${colors.fg.accent}20;
+          }
         }
       }
     }
@@ -204,13 +206,10 @@ class Rsvp extends Component {
                   />
                 </div>
                 <div className={css('mt4')}>
-                  <label
-                    htmlFor="attending-true"
-                    className={css('radio flex.row items.center')}
-                  >
+                  {/* eslint-disable-next-line */}
+                  <label className={css('radio flex.row items.center')}>
                     <div className={css('mr10p')}>
                       <input
-                        id="attending-true"
                         type="radio"
                         name="attending"
                         value="true"
@@ -224,13 +223,10 @@ class Rsvp extends Component {
                       Accepts with pleasure
                     </span>
                   </label>
-                  <label
-                    htmlFor="attending-false"
-                    className={css('radio flex.row items.center mt3')}
-                  >
+                  {/* eslint-disable-next-line */}
+                  <label className={css('radio flex.row items.center mt3')}>
                     <div className={css('mr10p')}>
                       <input
-                        id="attending-false"
                         type="radio"
                         name="attending"
                         value="false"
