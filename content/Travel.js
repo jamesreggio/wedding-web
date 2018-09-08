@@ -63,8 +63,9 @@ const hotels = [
               target="_blank"
             >
               this site
-            </a>, select <strong>Code Type: Promo</strong> and use{' '}
-            <strong>Code: WEDD2018</strong>, or call.
+            </a>
+            , select <strong>Code Type: Promo</strong> and use{' '}
+            <strong>Code: WEDD18</strong>, or call.
           </p>
         </div>
       </>
@@ -156,8 +157,11 @@ const Travel = () => (
         rel="noopener noreferrer"
         target="_blank"
       >
-        Saratoga{nbsp}Springs
-      </a>, three hours north of New York City.
+        Saratoga
+        {nbsp}
+        Springs
+      </a>
+      , three hours north of New York City.
     </p>
     <div className={css('clear.both')}>
       <img
@@ -198,8 +202,9 @@ const Travel = () => (
           target="_blank"
         >
           Thoroughbred racetrack
-        </a>, which still draws in over 20,000 spectators each day during the
-        summer months.
+        </a>
+        , which still draws in over 20,000 spectators each day during the summer
+        months.
       </p>
       <p>
         In its off-season, Saratoga is a quintessential Upstate town. It has a
@@ -212,10 +217,8 @@ const Travel = () => (
       </p>
     </div>
     <h4>
-      Getting to Saratoga<span className={css('disp.none disp.init-s')}>
-        {' '}
-        Springs
-      </span>
+      Getting to Saratoga
+      <span className={css('disp.none disp.init-s')}> Springs</span>
     </h4>
     <p>
       Saratoga is{' '}
@@ -291,9 +294,9 @@ const Travel = () => (
         Amtrak&apos;s website
       </a>{' '}
       for trains departing Penn Station (<strong>NYP</strong>) to either
-      Saratoga Springs (<strong>SAR</strong>) or Albany-Rensselaer (<strong>
-        ALB
-      </strong>).
+      Saratoga Springs (<strong>SAR</strong>) or Albany-Rensselaer (
+      <strong>ALB</strong>
+      ).
     </p>
     <p>
       The Saratoga station is{' '}
@@ -350,10 +353,8 @@ const Travel = () => (
       speedy public transit options that can get you directly to Penn Station.
     </p>
     <h4>
-      Getting around Saratoga<span className={css('disp.none disp.init-s')}>
-        {' '}
-        Springs
-      </span>
+      Getting around Saratoga
+      <span className={css('disp.none disp.init-s')}> Springs</span>
     </h4>
     <p>
       <strong>Uber</strong> and <strong>Lyft</strong> are available in Saratoga
@@ -375,10 +376,8 @@ const Travel = () => (
       prefer you shuttle or use a ride-sharing app.
     </p>
     <h4>
-      Places to stay in Saratoga<span className={css('disp.none disp.init-s')}>
-        {' '}
-        Springs
-      </span>
+      Places to stay in Saratoga
+      <span className={css('disp.none disp.init-s')}> Springs</span>
     </h4>
     <p>
       Saratoga has a wide range of accomodation options, but these are our
