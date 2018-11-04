@@ -234,9 +234,10 @@ const Travel = () => (
       and train.
     </p>
     <p className="box">
-      Cheston&apos;s parents will be hosting a casual brunch at their home in
-      Saratoga from <em>10am</em> to <em>2pm</em> on Sunday following the
-      wedding, so please consider joining us when you make your travel plans.
+      Cheston&apos;s father and step-mother will be hosting a casual brunch at
+      their home in Saratoga from <em>10am</em> to <em>2pm</em> on Sunday
+      following the wedding, so please consider joining us when you make your
+      travel plans.
     </p>
     <h5>By plane</h5>
     <p>

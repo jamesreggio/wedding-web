@@ -317,10 +317,11 @@ class Rsvp extends Component {
                       css('text.b2 fg.black mxn2 px2 d0 mt6 mb4'),
                     )}
                   >
-                    Cheston&apos;s parents will be hosting a casual brunch at
-                    their home in Saratoga from <em>10am</em> to <em>2pm</em> on
-                    Sunday following the wedding, so please consider joining us
-                    when you make your travel plans.
+                    Cheston&apos;s father and step-mother will be hosting a
+                    casual brunch at their home in Saratoga from
+                    <em>10am</em> to <em>2pm</em> on Sunday following the
+                    wedding, so please consider joining us when you make your
+                    travel plans.
                   </p>
                 </div>
               )}
